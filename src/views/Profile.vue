@@ -7,6 +7,9 @@
 <script>
     export default {
          name: "Profile",
+         mounted(){
+             console.log(this.$route.params.id)
+         }
     }
 </script>
 
