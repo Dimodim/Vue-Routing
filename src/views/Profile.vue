@@ -20,7 +20,7 @@
     >
     <br />
     <h1>{{ fullname }}</h1>
-    <input type="text" v-model.lazy="user.firstName" />
+    <input v-model.lazy="user.firstName" type="text" />
     <h1>{{ user.firstName }}</h1>
     <router-view></router-view>
   </div>
@@ -29,7 +29,7 @@
 <script>
 export default {
   name: "Profile",
-  data() {
+  data: function() {
     return {
       user: {
         firstName: "Peter",
@@ -38,9 +38,7 @@ export default {
       }
     };
   },
-  mounted() {
-    console.log(this.$route.params.id);
-  },
+
   computed: {
     //the computed property automatically updates when the propertyes it deppends on are changed
     fullname: function() {
@@ -65,6 +63,9 @@ export default {
       //to work with changes in prop
       console.log(`the new value is ${newVal} and the old one is ${oldVal}`);
     }
+  },
+  mounted() {
+    console.log(this.$route.params.id);
   }
 };
 </script>
