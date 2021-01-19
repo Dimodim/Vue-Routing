@@ -20,10 +20,29 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
-    path: "/profile/:id",
+    path: "/profile",
     name: "Profile",
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue")
+  },
+  {
+    path: "/profile/:id",
+    name: "ProfileWithId",
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
+    children:[{
+      path:"info",
+      name: "Info",
+      component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/Info.vue")
+    }],
+    
+  },
+  {
+    path: "*",
+    name: "NotFound",
+    component: () =>
+      import(/* webpackChunkName: "profile" */ "../views/NotFound.vue")
   }
 ];
 
