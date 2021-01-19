@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <h3>404</h3>
-    </div>
+  <div>
+    <h3>404</h3>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: 'NotFound'
-    }
+export default {
+  name: "NotFound"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

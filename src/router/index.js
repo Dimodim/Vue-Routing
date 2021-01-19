@@ -30,13 +30,14 @@ const routes = [
     name: "ProfileWithId",
     component: () =>
       import(/* webpackChunkName: "profile" */ "../views/Profile.vue"),
-    children:[{
-      path:"info",
-      name: "Info",
-      component: () =>
-      import(/* webpackChunkName: "profile" */ "../views/Info.vue")
-    }],
-    
+    children: [
+      {
+        path: "info",
+        name: "Info",
+        component: () =>
+          import(/* webpackChunkName: "profile" */ "../views/Info.vue")
+      }
+    ]
   },
   {
     path: "*",
