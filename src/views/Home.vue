@@ -33,10 +33,17 @@ export default {
       jokeList: "getAllJokes"
     })
   },
+  mounted() {
+    this.incrementCount();
+  },
   methods: {
-    ...mapActions(["setCurrentJoke"]),
+    ...mapActions(["setCurrentJoke", "countIncrement"]),
     addJoke() {
       this.setCurrentJoke();
+    },
+    incrementCount(){
+      this.countIncrement();
+      console.log(this.$store.state.count)
     }
   }
 };
