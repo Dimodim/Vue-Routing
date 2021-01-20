@@ -30,7 +30,8 @@ export default {
   computed: {
     ...mapGetters({
       joke: "getCurrentJoke",
-      jokeList: "getAllJokes"
+      jokeList: "getAllJokes",
+      count: "getCount"
     })
   },
   mounted() {

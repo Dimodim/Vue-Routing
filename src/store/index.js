@@ -14,7 +14,7 @@ export default new Vuex.Store({
   },
   mutations: {
     countIncrement(state){
-      state.count++;
+      state.count++; //not related to the dad jokes
     },
     setCurrentJoke(state, payload) {
       state.currentJoke = payload;
@@ -38,6 +38,9 @@ export default new Vuex.Store({
     },
     getAllJokes(state) {
       return state.allJokes;
+    },
+    getCount(state){
+      return state.count;
     }
   }
 });
