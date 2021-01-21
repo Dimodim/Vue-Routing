@@ -3,6 +3,7 @@
     <input type="text" :placeholder="searchField" />
     <ul v-for="recipe in recipes" :key="recipe.id">
       <recipes :recipe="recipe"></recipes>
+      <button @click.prevent=""></button>
     </ul>
   </div>
 </template>
@@ -26,7 +27,9 @@ export default {
       recipes: "getRecipes"
     })
   },
-  mounted() {},
+  mounted() {
+    this.setRecipes();
+  },
   methods: {
     ...mapActions(["setRecipes"]),
     getRecipes() {
