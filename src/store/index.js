@@ -11,24 +11,22 @@ export default new Vuex.Store({
     recipes: []
   },
   mutations: {
-    // setCurrentJoke(state, payload) {
-    //   state.currentJoke = payload;
-    //   state.allJokes.push(payload);
-    // }
     setRecipes(state, payload) {
       state.recipes = payload;
     }
   },
   actions: {
-    // async setCurrentJoke(state) {
-    //   const joke = await fetch(url, { headers });
-    //   const jokeJson = await joke.json();
-    //   state.commit("setCurrentJoke", jokeJson.joke); // we use commit when we want to change a mutation and dispatch when we want to change an action
-    // }
     setRecipes(state) {
       axios.get(`${prefix}recipes/complexSearch?${apiKey}`).then(r => {
         state.commit("setRecipes", r.data.results);
       });
+    },
+    setRecipesByName(state, payload) {
+      axios
+        .get(`${prefix}recipes/complexSearch?query=${payload}&${apiKey}`)
+        .then(r => {
+          state.commit("setRecipes", r.data.results);
+        });
     }
   },
   modules: {},

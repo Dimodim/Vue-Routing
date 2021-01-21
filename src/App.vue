@@ -10,7 +10,6 @@
   </div>
 </template>
 <script>
-
 window.axios = require("axios");
 export default {};
 </script>

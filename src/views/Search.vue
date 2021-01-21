@@ -1,9 +1,9 @@
 <template>
   <div>
-    <input type="text" :placeholder="searchField" />
+    <input v-model="searchField" type="text" placeholder="Search" />
+    <button @click.prevent="getRecipesByName()"></button>
     <ul v-for="recipe in recipes" :key="recipe.id">
       <recipes :recipe="recipe"></recipes>
-      <button @click.prevent=""></button>
     </ul>
   </div>
 </template>
@@ -31,9 +31,12 @@ export default {
     this.setRecipes();
   },
   methods: {
-    ...mapActions(["setRecipes"]),
+    ...mapActions(["setRecipes", "setRecipesByName"]),
     getRecipes() {
       this.setRecipes();
+    },
+    getRecipesByName() {
+      this.setRecipesByName(this.searchField);
     }
   }
 };
