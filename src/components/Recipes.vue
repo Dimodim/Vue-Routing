@@ -17,4 +17,9 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.recipe-img {
+  max-width: 210px;
+  min-height: 150px;
+}
+</style>
