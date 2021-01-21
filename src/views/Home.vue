@@ -42,9 +42,9 @@ export default {
     addJoke() {
       this.setCurrentJoke();
     },
-    incrementCount(){
+    incrementCount() {
       this.countIncrement();
-      console.log(this.$store.state.count)
+      console.log(this.$store.state.count);
     }
   }
 };

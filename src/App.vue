@@ -10,6 +10,7 @@
 </template>
 <script>
 import { mapActions } from "vuex";
+window.axios = require("axios");
 export default {
   mounted() {
     this.setCurrentJoke();
