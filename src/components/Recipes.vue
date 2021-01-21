@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="recipe-name">{{ recipe.title }}</div>
+    <h3 class="recipe-name">{{ recipe.title }}</h3>
     <img class="recipe-img" :src="recipe.image" />
   </div>
 </template>
