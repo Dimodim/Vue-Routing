@@ -1,7 +1,12 @@
 <template>
   <div>
-    <input v-model="searchField" type="text" placeholder="Search" />
-    <button class="btn btn-primary" @click.prevent="getRecipesByName()">
+    <input
+      v-model="searchField"
+      class="search-bar"
+      type="text"
+      placeholder="Search"
+    />
+    <button class="search-btn" @click.prevent="getRecipesByName()">
       Search
     </button>
     <ul class="container">
@@ -50,6 +55,13 @@ export default {
 </script>
 
 <style scoped>
+.search-bar {
+  min-width: 300px;
+}
+.search-btn {
+  margin-left: 0.8 em;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
