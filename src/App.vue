@@ -1,9 +1,9 @@
 <template>
   <div id="app">
+    <logged-in-header></logged-in-header>
     <div id="nav">
       <router-link :to="{ name: 'Profile' }">Profile</router-link> |
       <router-link :to="{ name: 'Search' }">Search</router-link> |
-      <router-link :to="{ name: 'Login' }">Login</router-link> |
       <router-link :to="{ name: 'Register' }">Register</router-link> |
       <router-link :to="{ name: 'Secret' }">Secret</router-link> |
     </div>
@@ -11,8 +11,13 @@
   </div>
 </template>
 <script>
+import LoggedInHeader from "@/components/LoggedInHeader";
 window.axios = require("axios");
-export default {};
+export default {
+  components: {
+    LoggedInHeader
+  }
+};
 </script>
 <style>
 #app {

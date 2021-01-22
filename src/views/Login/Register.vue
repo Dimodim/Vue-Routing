@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Register</h1>
+    <h1>{{ registerPage ? "Register" : "Login" }}</h1>
     <div>
       <form @submit.prevent="onClick()">
         <div class="email">
@@ -13,6 +13,10 @@
       </form>
     </div>
     <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
+    <br />
+    <button @click="formChange()">
+      {{ registerPage ? "Login form" : "Register form" }}
+    </button>
   </div>
 </template>
 
@@ -23,6 +27,7 @@ export default {
   name: "Register",
   data() {
     return {
+      registerPage: true,
       email: "",
       password: "",
       errorMessage: ""
@@ -30,15 +35,26 @@ export default {
   },
   methods: {
     async onClick() {
-      try {
-        const user = firebase
-          .auth()
-          .createUserWithEmailAndPassword(this.email, this.password);
-        console.log(user);
-        this.$router.replace({ name: "Secret" });
-      } catch (error) {
-        this.errorMessage = error;
+      if (this.registerPage) {
+        try {
+          firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.email, this.password);
+          this.$router.replace({ name: "Secret" });
+        } catch (error) {
+          this.errorMessage = error;
+        }
+      } else {
+        try {
+          firebase.auth().signInWithEmailAndPassword(this.email, this.password);
+          this.$router.replace({ name: "Secret" });
+        } catch (error) {
+          this.errorMessage = error;
+        }
       }
+    },
+    formChange() {
+      this.registerPage = !this.registerPage;
     }
   }
 };
