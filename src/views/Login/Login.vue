@@ -2,21 +2,42 @@
   <div>
     <h1>Login</h1>
     <div>
-      <input type="text" />
-      <input type="password" />
+      <form @submit.prevent="onClick()">
+        <div class="email">
+          <input v-model="email" type="text" placeholder="email" />
+        </div>
+        <div class="pasword">
+          <input v-model="password" type="password" placeholder="password" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
+    <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Login"
+  name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+      errorMessage: ""
+    };
+  },
+  methods: {
+    onClick() {
+      alert("submit");
+    }
+  }
 };
 </script>
 
 <style scoped>
 .error {
   color: red;
+  font-size: 17px;
 }
 
 input {
